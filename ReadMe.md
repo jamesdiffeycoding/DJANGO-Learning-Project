@@ -40,6 +40,9 @@ Instagram, Spotify, Dropbox.
         - "settings.py" is used when we install different apps, install plugins, change middleware, modify database engines and more.
         - "urls.py" allows us to configure different url routes that we can direct to different django apps
 
+### Q/ How do you run the server?
+ - inside the parent "djangolearningtools" folder, enter "python manage.py runserver"
+
 ### Q/ How can you make and link an app in your project? How to configure URLs?
 - make an app: in the parent "djangolearningtool" folder, enter the command "python manage.py startapp myfirstapp". This creates a folder within the project called "myfirstapp", and scaffolds some boilerplate code.
     - within the folder, we find...
@@ -88,18 +91,51 @@ Instagram, Spotify, Dropbox.
     - for this app, we paste in a template from online.
 - in the "templates" folder, create a file called "home.html"
     - write ... "{% extends "base.html" %} {% block title %} Home Page {% endblock %}
-                    {% block content %} <p> this is the home page</p>
-                    {% endblock %}"
-        - extends "base.html" means we import all the code from base.html, for instance styling or meta info
+                {% block content %} <p> this is the home page</p>
+                {% endblock %}"
+        - "extends "base.html"" means we import all the code from base.html, for instance styling or meta info
         - block title is overridden with "Home Page"
         - block content is overridden with just a p tag
+- to render the template return to the "views.py" file inside the "myfirstapp" folder, and tweak a return to be "render(request, "home.html").
+    - this will search for a file called "home.html" inside the "templates" folder.
 
+### Q/ What is Object Relational Mapping ORM?
+- django provides object relational mapping (ORM). This means we can use python code to create database models, and then django will make these compatible with other database scheme like SQLLite3 or MongoDB (or whatever other backend database engine we are using).
+- 'migrations' in django are a function that make corresponding models of our code in other schemas.
 
+### Q/ How to create database models? What about migrations?
+- inside the "myfirstapp" folder you'll see the "models.py" file, add to it "class TodoItem(models.Model):
+    title=models.CharField(max_length=200)
+    completed=models.BooleanField(default=False)"
+- to register this database, go to "admin.py" in the "myfirstapp" folder. Import the TodoItem with "from .models import TodoItem", followed by a registering it with "admin.site.register(TodoItem)".
+    - Now when we go to our site's admin panel we will be able to view this model
 
-### Q/ How to create database models
-### Q/ How to render dynamic data with templates
+- Any time you change your database models, you need to do a migration (automated code which applies to the database which allows you to change your models and update them while maintaining that data and ensuring it won't be removed when you make changes to the database schema)
+- In the terminal in your child "djangolearningtool" folder, enter "python manage.py makemigrations".
+- To create a template to view all the todo items we have, create a file called "todos.html" in the "templates" folder. Use the code below to create a view
+    - {% extends "base.html" %} {% block content %}
+        <h1>Todo list</h1>
+        <ul>
+            <!-- a for loop to map the todos -->
+            {% for todo in todos %}
+            <!-- variables can be rendered using two sets of curly braces -->
+            <!-- if statement allows a return if true and a return if false -->
+            <li>{{ todo.title }}: {% if todo.completed %}Completed{% else %}Not completed {% endif %}</li>
+            {% endfor %}
+        </ul>
+        {% endblock %}
+    - as you can see, there is a for loop to map the todos, curly braces allow access to the 'python variable dictionary', and if statements can handle returns if a variable is true or false.
+- Now create a view that returns that template.
+    - In "myfirstapp" folder's "views.py" file write the import statement "from .models import TodoItem",
+    - then write "def todos(request): items = TodoItem.objects.all() return render(request, "todos.html", {"todos": items })"
+    - Then add the url "path("todos", views.todos, name="todos")" inside the "myfirstapp" folder's "urls.py" file.
+- You now have a SQLLite database on your computer connected to the project. You can choose to edit the data in the django admin panel, or set it up with an online database.
+
 ### Q/ How to use the Django admin panel
-
+- To use the django admin panel, you need to create a user. To do this, cd to the parent "djangolearningtool" folder and enter in the terminal "python manage.py createsuperuser". You may need to run "python manage.py migrate" first.
+- enter a username/email (optional) and a password.
+- then go to your localhost 8000 / admin for a prebuilt admin dashboard where you can sign in. It is quite useful and requires minimal configuration. 
+- you should then be able to see your databases and edit their values.
 
 ### Q/ Any other notes
 Django is compatible with many different databases.
@@ -108,7 +144,6 @@ Django is compatible with many different databases.
 Python, Django, HTML, CSS
 
 <!-- ## Try it out -->
-<!-- [Ruby on Rails Pokedex Deployment](https://rubyonrails-pokedex.onrender.com/pokemonsters) -->
 
 
 ______________________________________________________________________
