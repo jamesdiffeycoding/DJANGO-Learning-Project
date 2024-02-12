@@ -26,29 +26,52 @@ Instagram, Spotify, Dropbox.
 Q/ Any other notes
 Django is compatible with many different databases. 
 
-Q/ How to setup a django project?
+Q/ How can you setup a django project?
 - install django package: in the terminal, enter "pip install django", or "pip3 ..." on mac/linux
 - start django project: restart your terminal, and enter "django-admin startproject djangolearningtool". This will create two folders called "djangolearningtool" with some scaffolded files.
     - within the parent "djangolearningtool" folder, we have one file "manage.py" that we run commands from like running a python server, making database migrations or creating users for the django admin panel.
     - within the child "djangolearningtoolfolder", we have...
-        - "init.py" tells python to treat this directory like a python package.
+        - "_init__.py" tells python to treat this directory like a python package.
         - "asgi.py" and "wsgi.py" are configuration files that allow django to communicate with the web server. 
         - "settings.py" is used when we install different apps, install plugins, change middleware, modify database engines and more.
         - "urls.py" allows us to configure different url routes that we can direct to different django apps
 - make an app: in the parent "djangolearningtool" folder, enter the command "python manage.py startapp myfirstapp". This creates a folder within the project called "myfirstapp", and scaffolds some boilerplate code.
     - within the folder, we find...
         - a folder called "migrations"
-        - "init.py"
-        - "admin.py"
-        - "apps.py"
-        - "models.py"
-        - "tests.py"
-        - "views.py" 
+        - "_init__.py" tells python to treat this directory like a python package.
+        - "admin.py" allows us to register database models so we can view them on our admin panel.
+        - "apps.py" ...
+        - "models.py" is where we place database models 
+        - "tests.py" is where we can write automated test cases
+        - "views.py" is where we create different views or routes that we can access on our website.
+- add a "urls.py" file to the newly created app: create a "urls.py" file inside "myfirstapp".
+    - This is where we will create different url routes and then we'll connect them to our views.
+    - write "from django.urls import path"
+    - write "from . import views"
+    - write "url patterns = [
+        path("", views.home, name="home")
+    ]"
+- create an example view (part 1): add ", HttpResponse" to the imports from "django.shortcuts"
+- create an example view (part 2): create a function by adding "def home(request): return HttpResponse("SimpleHttpResponse")"
+    - def creates the function, home is the name of the function, 
+    - the parameter "request" is an object that has access to query parameters and request bodies. 
+    - the return can be a rendered template or a simple HttpResponse
+    - note: you can create multiple functions here. I made one called "extras" that returned a different HttpResponse
+- link newly made app to django project (part 1): in the child "djangolearningtool" folder, add ", 'myfirstapp'" to the "INSTALLED_APPS" list in the "settings.py" file.
+- link newly made app to django project (part 2): in the child "djangolearningtool" folder, add the import for ", include" from "django.urls", then add "urlpatterns = [path("", include(myfirstapp.urls))"]"
+    - whenever we go to the empty string "", we forward all the different urls into "myfirstapp/urls.py" where they will then be handled
+    - the same thing happens if we got to the url bar and add "/anotherexample"
+    - if we add "/extras" we will go to the "/extras" path specified in the "myfirstapp/urls.py" file
 
+- run the server to check it is all working: inside the parent "djangolearningtools" folder, enter "python manage.py runserver"
+    - note: the unapplied migrations error will appear but can be ignored for now
+    - you will be linked to local host 8000 and you should receive the desired response.
+    - in my project, I created an "extras" path too, which could be accessed by going to "/extras"
 
 Q/ What are django apps?
 - django apps are standalone applications you can plug and play. In theory, you can take it out of this django project and put it in another one. 
 - These apps contain different things including database models, different views or routes, templates, and more.
+- We can separate different logics into different applications. For instance, you may have one app for authentication, one for specific user types (e.g. admins/moderators), one that displays the main content of the website, etc.
 
 
 Q/ How to configure URLs
