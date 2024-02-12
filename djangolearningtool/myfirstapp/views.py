@@ -4,11 +4,14 @@ from django.shortcuts import render, HttpResponse
 
 # Create your views here.
 def home(request): 
-    return HttpResponse("Simple Http Response")
+    # return HttpResponse("Simple Http Response")
 # def creates a function
 # home is the name of the function
 # the request object allows us to take in query parameters and the body of requests sent to this function
 # we can return either some rendered templates, or an Http response
+    return render(request, "home.html")
+# this return uses django's template functionality
+
 
 def extras(request): 
     return HttpResponse("Extra info")
