@@ -1,7 +1,7 @@
 # Django Learning Tool
 
 ## Inspiration
-As a new developer, it is easy to get stuck in a bubble learning just one programming language and never daring to venture outside of it. **So I wondered, what would it be like to step outside of that bubble for myself?**?
+As a new developer, it is easy to get stuck in a bubble learning just one programming language and never daring to venture outside of it. **So I wondered, what would it be like to step outside of that bubble for myself?**
 
 I recently stepped out of my bubble into the world of Ruby on Rails. Now I'm stepping into Python and Django, in part due hearing about some incredible roles that use them..
 
