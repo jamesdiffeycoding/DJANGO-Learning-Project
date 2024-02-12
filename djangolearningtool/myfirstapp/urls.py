@@ -3,7 +3,8 @@ from . import views
 
 urlpatterns = [
     path("", views.home, name="home"),
-    path("extras", views.extras, name="extras")
+    path("extras", views.extras, name="extras"),
+    path("todos", views.todos, name="todos"),
 
 ]
 # an empty path, "", means we go to the base url of the website.

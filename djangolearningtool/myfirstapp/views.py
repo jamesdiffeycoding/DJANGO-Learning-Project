@@ -1,6 +1,6 @@
 # imports. Default import includes render only, not HttpResponse which needed to be added.
 from django.shortcuts import render, HttpResponse
-
+from .models import TodoItem
 
 # Create your views here.
 def home(request): 
@@ -15,3 +15,8 @@ def home(request):
 
 def extras(request): 
     return HttpResponse("Extra info")
+
+
+def todos(request):
+    items = TodoItem.objects.all()
+    return render(request, "todos.html", { "items": items })

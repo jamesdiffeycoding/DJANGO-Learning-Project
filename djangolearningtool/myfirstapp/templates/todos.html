@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block content %}
+<h1>Todo list</h1>
+<ul>
+    <!-- a for loop to map the todos -->
+    {% for todo in todos %}
+    <!-- variables can be rendered using two sets of curly braces -->
+    <!-- if statement allows a return if true and a return if false -->
+    <li>{{ todo.title }}: {% if todo.completed %}Completed{% else %}Not completed {% endif %}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
