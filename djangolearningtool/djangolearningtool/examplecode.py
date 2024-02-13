@@ -419,4 +419,88 @@ def is_prime(number):
 print(is_prime(7))  # Output: True
 
 
+# # This document demonstrates the following operations with a SQLite database:
+# Connect to the Database: Establish a connection to the database using sqlite3.connect().
+# Create a Table: Create a table named users with columns id, name, age, and email.
+# Insert Data: Insert multiple rows of data into the users table using cursor.executemany().
+# Fetch Data: Fetch all rows from the users table using cursor.fetchall() and print the fetched data.
+# Update Data: Update the age of a user in the users table using cursor.execute().
+# Delete Data: Delete a user from the users table using cursor.execute().
+# Commit Changes: Commit the changes to the database using connection.commit()
+# Close Cursor and Connection: Close the cursor and connection to release resources using cursor.close() and connection.close().
+# This document serves as a guide for working with databases in Python using SQLite, covering common database operations such as creating tables, inserting, fetching, updating, and deleting data. You can modify and expand upon this code to suit your specific database needs.
 
+
+"""
+Working with Databases in Python using SQLite
+
+This document covers how to work with databases in Python using the SQLite database engine.
+"""
+
+import sqlite3
+
+# Connect to the database (creates a new database if it doesn't exist)
+connection = sqlite3.connect("example.db")
+
+# Create a cursor object to execute SQL commands
+cursor = connection.cursor()
+
+# Create a table
+create_table_query = """
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    age INTEGER,
+    email TEXT UNIQUE
+);
+"""
+cursor.execute(create_table_query)
+
+# Insert data into the table
+insert_query = """
+INSERT INTO users (name, age, email) VALUES (?, ?, ?);
+"""
+user_data = [("Alice", 30, "alice@example.com"),
+             ("Bob", 25, "bob@example.com"),
+             ("Charlie", 35, "charlie@example.com")]
+cursor.executemany(insert_query, user_data)
+
+# Commit the changes to the database
+connection.commit()
+
+# Fetch data from the table
+select_query = """
+SELECT * FROM users;
+"""
+cursor.execute(select_query)
+rows = cursor.fetchall()
+
+# Print the fetched data
+print("Fetched data from the users table:")
+for row in rows:
+    print(row)
+
+# Update data in the table
+update_query = """
+UPDATE users SET age = ? WHERE name = ?;
+"""
+new_age = 40
+name_to_update = "Alice"
+cursor.execute(update_query, (new_age, name_to_update))
+connection.commit()
+print("Updated age for", name_to_update)
+
+# Delete data from the table
+delete_query = """
+DELETE FROM users WHERE name = ?;
+"""
+name_to_delete = "Bob"
+cursor.execute(delete_query, (name_to_delete,))
+connection.commit()
+print("Deleted user", name_to_delete)
+
+# Close the cursor and connection
+cursor.close()
+connection.close()
+
+# End of database operations
