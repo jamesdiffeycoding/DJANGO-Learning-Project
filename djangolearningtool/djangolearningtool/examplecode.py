@@ -504,3 +504,89 @@ cursor.close()
 connection.close()
 
 # End of database operations
+
+
+### NOUGHTS AND CROSSES GAME IN PYTHON
+# Constants (EMPTY, X, O) are defined to represent empty cells, X player, and O player respectively.
+# A 3x3 nested list (board) is initialized to represent the game board.
+# Functions are defined for printing the game board (print_board()), checking if the board is full (is_board_full()), checking if a player has won (check_winner()), and making a move (make_move()).
+# The main game loop prompts players for their moves, validates inputs, updates the board, checks for a winner or draw, and switches players accordingly
+# Data types used include strings (EMPTY, X, O), nested lists (board), integers (row and column numbers), and boolean (True/False for win/draw conditions). Input from users is obtained as integers and validated.
+# This code demonstrates the use of various data types such as strings, nested lists, integers, and booleans in the context of implementing a Noughts and Crosses game in Python. It covers basic game mechanics, input validation, and condition checking.
+"""
+Noughts and Crosses (Tic-Tac-Toe) Game
+
+This program implements a simple Noughts and Crosses game.
+"""
+
+# Define constants
+EMPTY = ' '
+X = 'X'
+O = 'O'
+
+# Initialize the game board
+board = [[EMPTY, EMPTY, EMPTY],
+         [EMPTY, EMPTY, EMPTY],
+         [EMPTY, EMPTY, EMPTY]]
+
+# Function to print the game board
+def print_board():
+    for row in board:
+        print(" | ".join(row))
+        print("-" * 9)
+
+# Function to check if the board is full
+def is_board_full():
+    for row in board:
+        if EMPTY in row:
+            return False
+    return True
+
+# Function to check if a player has won
+def check_winner(player):
+    # Check rows and columns
+    for i in range(3):
+        if all(cell == player for cell in board[i]) or \
+           all(board[j][i] == player for j in range(3)):
+            return True
+    # Check diagonals
+    if all(board[i][i] == player for i in range(3)) or \
+       all(board[i][2 - i] == player for i in range(3)):
+        return True
+    return False
+
+# Function to make a move
+def make_move(player, row, col):
+    if board[row][col] == EMPTY:
+        board[row][col] = player
+        return True
+    else:
+        print("Invalid move. That cell is already occupied.")
+        return False
+
+# Main game loop
+current_player = X
+while True:
+    print_board()
+    print(f"Player {current_player}'s turn.")
+
+    # Get player's move
+    row = int(input("Enter row (0, 1, or 2): "))
+    col = int(input("Enter column (0, 1, or 2): "))
+
+    # Validate and make move
+    if row in range(3) and col in range(3):
+        if make_move(current_player, row, col):
+            # Check for a winner
+            if check_winner(current_player):
+                print_board()
+                print(f"Player {current_player} wins!")
+                break
+            elif is_board_full():
+                print_board()
+                print("It's a draw!")
+                break
+            # Switch player
+            current_player = O if current_player == X else X
+    else:
+        print("Invalid input. Please enter a number between 0 and 2.")
