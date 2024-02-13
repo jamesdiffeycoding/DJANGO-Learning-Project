@@ -225,7 +225,6 @@ print("Congratulations! You've completed the Python Learning Document.")
 #  generators, and decorators. Each concept is accompanied by example code to help you understand and experiment with the concepts. 
 # Feel free to explore and modify the code to deepen your understanding of Python. Happy coding!
 
-
 """
 Extended Python Learning Document
 
@@ -348,5 +347,76 @@ print(add(3, 5))  # Output: Calling function: add \n 8
 print("Congratulations! You've explored more Python concepts.")
 
 # End of Extended Python Learning Document
+
+
+# These are some basic code challenges along with their solutions in Python. They cover a range of fundamental concepts including 
+# loops, conditionals, strings, lists, and functions. You can use them to practice and deepen your understanding of Python programming.
+
+
+
+# Challenge: Calculate the Sum of Digits in a Number
+# Write a function that takes an integer as input and returns the sum of its digits.
+
+def sum_of_digits(number):
+    total = 0
+    while number > 0:
+        total += number % 10
+        number //= 10
+    return total
+
+# Test the function
+print(sum_of_digits(123))  # Output: 6 (1 + 2 + 3)
+
+
+# Challenge: Check if a String is a Palindrome
+# Write a function that takes a string as input and returns True if it is a palindrome, False otherwise.
+
+def is_palindrome(string):
+    return string == string[::-1]
+
+# Test the function
+print(is_palindrome("radar"))  # Output: True
+
+
+# Challenge: Find the Largest Element in a List
+# Write a function that takes a list of numbers as input and returns the largest number in the list.
+
+def find_largest(numbers):
+    if not numbers:
+        return None
+    max_num = numbers[0]
+    for num in numbers:
+        if num > max_num:
+            max_num = num
+    return max_num
+
+# Test the function
+print(find_largest([1, 5, 3, 9, 2]))  # Output: 9
+
+
+
+
+# Challenge: Count the Number of Words in a Sentence
+# Write a function that takes a sentence as input and returns the number of words in the sentence.
+
+def count_words(sentence):
+    return len(sentence.split())
+
+# Test the function
+# print(count_words("Hello, world!"))  # Output: 2
+# Challenge: Check if a Number is Prime
+# Write a function that takes a number as input and returns True if it is prime, False otherwise.
+
+def is_prime(number):
+    if number < 2:
+        return False
+    for i in range(2, int(number**0.5) + 1):
+        if number % i == 0:
+            return False
+    return True
+
+# Test the function
+print(is_prime(7))  # Output: True
+
 
 
