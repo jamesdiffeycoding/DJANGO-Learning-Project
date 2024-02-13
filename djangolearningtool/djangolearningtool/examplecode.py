@@ -219,3 +219,134 @@ thread2.join()
 
 # Conclusion
 print("Congratulations! You've completed the Python Learning Document.")
+
+# This extended document covers additional Python concepts such as switch statements (implemented using dictionaries),
+# optional chaining, different kinds of input fields (string, integer, float, boolean), list comprehensions, lambda functions,
+#  generators, and decorators. Each concept is accompanied by example code to help you understand and experiment with the concepts. 
+# Feel free to explore and modify the code to deepen your understanding of Python. Happy coding!
+
+
+"""
+Extended Python Learning Document
+
+This document covers various Python concepts with extensive example code.
+"""
+
+# Topic: Switch Statements (Using Dictionaries)
+
+def switch_case(argument):
+    switcher = {
+        1: "January",
+        2: "February",
+        3: "March",
+        4: "April",
+        5: "May",
+        6: "June",
+        7: "July",
+        8: "August",
+        9: "September",
+        10: "October",
+        11: "November",
+        12: "December"
+    }
+    return switcher.get(argument, "Invalid month")
+
+print(switch_case(1))  # Output: January
+print(switch_case(13))  # Output: Invalid month
+
+# Topic: Optional Chaining (Python 3.8+)
+
+# Example class with nested attributes
+class Address:
+    def __init__(self, city):
+        self.city = city
+
+class Person:
+    def __init__(self, name, address=None):
+        self.name = name
+        self.address = address
+
+# Creating objects
+address = Address(city="New York")
+person1 = Person(name="Alice", address=address)
+person2 = Person(name="Bob")
+
+# Using optional chaining
+print(person1.address.city if person1.address else "Unknown")  # Output: New York
+print(person2.address.city if person2.address else "Unknown")  # Output: Unknown
+
+# Topic: Different Kinds of Input Fields
+
+# String Input
+name = input("Enter your name: ")
+print("Hello,", name)
+
+# Integer Input
+age = int(input("Enter your age: "))
+print("You are", age, "years old.")
+
+# Floating-point Input
+height = float(input("Enter your height in meters: "))
+print("Your height is", height, "meters.")
+
+# Boolean Input
+is_student = input("Are you a student? (yes/no): ").lower()
+is_student = is_student == "yes"
+print("Student Status:", is_student)
+
+# Topic: List Comprehensions
+
+# Generating a list of squares
+squares = [x ** 2 for x in range(10)]
+print(squares)  # Output: [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+# Filtering even numbers
+even_numbers = [x for x in range(10) if x % 2 == 0]
+print(even_numbers)  # Output: [0, 2, 4, 6, 8]
+
+# Topic: Lambda Functions
+
+# Basic lambda function
+square = lambda x: x ** 2
+print(square(5))  # Output: 25
+
+# Using lambda with map function
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = list(map(lambda x: x ** 2, numbers))
+print(squared_numbers)  # Output: [1, 4, 9, 16, 25]
+
+# Topic: Generators
+
+# Generator function to generate Fibonacci sequence
+def fibonacci_generator(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+# Using the generator
+fibonacci_sequence = fibonacci_generator(10)
+print(list(fibonacci_sequence))  # Output: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+# Topic: Decorators
+
+# Decorator function to log function calls
+def logger(func):
+    def wrapper(*args, **kwargs):
+        print("Calling function:", func.__name__)
+        return func(*args, **kwargs)
+    return wrapper
+
+# Applying the decorator
+@logger
+def add(a, b):
+    return a + b
+
+print(add(3, 5))  # Output: Calling function: add \n 8
+
+# Conclusion
+print("Congratulations! You've explored more Python concepts.")
+
+# End of Extended Python Learning Document
+
+
