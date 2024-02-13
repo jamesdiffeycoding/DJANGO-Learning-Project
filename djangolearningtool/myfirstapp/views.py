@@ -23,7 +23,6 @@ def todos(request):
 
 
 def pythonoverview(request):
-    items = TodoItem.objects.all()
     return render(request, "pythonoverview.html")
 
 
