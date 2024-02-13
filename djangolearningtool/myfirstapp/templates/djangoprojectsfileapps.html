@@ -1,0 +1,52 @@
+<!-- extends "base.html" means we import all the code from base.html, for instance styling or meta info -->
+<!-- block title is overridden with "Home Page" -->
+<!-- block content is overridden with just a p tag -->
+{% extends "base.html" %} {% block title %} Home Page {% endblock %}
+{% block content %}
+<h3>How is a Django project organised?</h3>
+
+<p>In Django, a web application is typically organized into projects and apps. Understanding these structures is crucial for organizing and managing your Django projects effectively. Let's delve into each component:</p>
+
+<p><strong>Django Project:</strong></p>
+<ul>
+    <li>A Django project is the entire web application, consisting of one or multiple interconnected parts.</li>
+    <li>It encompasses settings, URL configurations, and overall project-level configurations.</li>
+    <li>A project is created using the <code>django-admin</code> command-line utility.</li>
+    <li>Common components of a Django project include the settings file (<code>settings.py</code>), URL configurations (<code>urls.py</code>), and the project's main application.</li>
+</ul>
+
+<p><strong>Django App:</strong></p>
+<ul>
+    <li>A Django app is a self-contained component within a Django project, serving a specific functionality or feature.</li>
+    <li>Each app can be reused in multiple projects or divided into smaller, reusable components.</li>
+    <li>Apps contain models, views, templates, and other related files.</li>
+    <li>Apps are created using the <code>manage.py</code> command-line utility.</li>
+    <li>They promote modularity, making it easier to maintain and extend the application.</li>
+</ul>
+
+<p><strong>File Structure in Django Project:</strong></p>
+<ul>
+    <li><code>project_name/</code> - The main directory containing the entire Django project.</li>
+    <li><code>manage.py</code> - A command-line utility for interacting with the project.</li>
+    <li><code>project_name/</code> - The inner directory with the same name as the project, containing project-level configurations.</li>
+    <li><code>settings.py</code> - Configuration settings for the project.</li>
+    <li><code>urls.py</code> - URL configurations for the project.</li>
+    <li><code>apps/</code> - A directory containing individual apps within the project.</li>
+    <li><code>app_name/</code> - The directory for each app containing its components.</li>
+    <li><code>models.py</code> - Defines data models for the app.</li>
+    <li><code>views.py</code> - Contains the logic to handle user requests and render responses.</li>
+    <li><code>templates/</code> - Directory for HTML templates used by the app.</li>
+    <li><code>static/</code> - Directory for static files like CSS, JavaScript, and images.</li>
+</ul>
+
+<p><strong>Comparison to React Project Structure:</strong></p>
+<ul>
+    <li>In a React project, the structure is typically component-based, with each component encapsulating its functionality.</li>
+    <li>React projects often include directories like <code>src/</code>, containing source files, and <code>public/</code>, for static assets.</li>
+    <li>Components in React may have a similar separation of concerns as Django apps, with files for logic, styling, and templates (JSX).</li>
+    <li>However, React projects focus more on the client-side interface and may involve additional tools like webpack for bundling assets.</li>
+    <li>Django projects, on the other hand, provide a more comprehensive structure for server-side development, including routing, database management, and backend logic.</li>
+</ul>
+
+<p>Understanding the structure of Django projects and apps is essential for effective development, enabling modularity, maintainability, and scalability.</p>
+{% endblock %}

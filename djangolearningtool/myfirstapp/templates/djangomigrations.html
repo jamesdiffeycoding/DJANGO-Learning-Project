@@ -1,0 +1,38 @@
+<!-- extends "base.html" means we import all the code from base.html, for instance styling or meta info -->
+<!-- block title is overridden with "Home Page" -->
+<!-- block content is overridden with just a p tag -->
+{% extends "base.html" %} {% block title %} Home Page {% endblock %}
+{% block content %} 
+<h3>What are Django migrations and what is ORM? How does Express JS compare to Django?</h3>
+
+<p>Django Migrations and ORM (Object-Relational Mapping) are key components of the Django web framework, designed to simplify database management and interaction within Python-based web applications. Comparing these to working in Express.js, a Node.js framework, provides insights into different approaches to database management and modeling.</p>
+
+<p><strong>Django Migrations:</strong></p>
+<ul>
+    <li>Django Migrations allow developers to manage changes to the application's database schema over time.</li>
+    <li>Developers define models in Python code, representing database tables, fields, and relationships.</li>
+    <li>When changes are made to models (such as adding new fields or altering existing ones), Django generates migration files automatically.</li>
+    <li>Migration files contain Python code that describes the changes to be applied to the database schema.</li>
+    <li>Developers can apply these migrations to the database using Django's management commands, making it easy to keep the database schema synchronized with the application's models.</li>
+    <li>Migrations support both forward and backward compatibility, enabling easy rollback if necessary.</li>
+</ul>
+
+<p><strong>Django ORM:</strong></p>
+<ul>
+    <li>Django ORM provides a high-level interface for interacting with the database using Python objects.</li>
+    <li>Developers can perform database operations (such as querying, inserting, updating, and deleting records) using Python code, without writing raw SQL queries.</li>
+    <li>ORM translates Python code into SQL queries, making database interactions more intuitive and Pythonic.</li>
+    <li>Django ORM supports various database backends, allowing developers to work with different database systems without changing their code significantly.</li>
+    <li>It provides features like querysets, model relationships, and queryset methods for efficient data retrieval and manipulation.</li>
+</ul>
+
+<p><strong>Comparing to Express.js:</strong></p>
+<ul>
+    <li>Express.js, being a Node.js framework, typically involves using libraries like Sequelize or TypeORM for ORM-like functionality, or directly writing SQL queries.</li>
+    <li>While Express.js offers flexibility and a more hands-on approach to database management, it may require more manual handling of migrations and schema changes compared to Django.</li>
+    <li>With Django, migrations are automated and closely integrated with the framework, reducing the manual effort required to manage database changes.</li>
+    <li>Express.js developers may find Django's ORM more abstracted and opinionated, but it can lead to faster development and easier maintenance, especially for developers accustomed to Python's syntax and conventions.</li>
+    <li>Conversely, developers familiar with Express.js might appreciate the flexibility and control it offers in database management, albeit at the cost of potentially more boilerplate code and manual management of schema changes.</li>
+</ul>
+
+{% endblock %}

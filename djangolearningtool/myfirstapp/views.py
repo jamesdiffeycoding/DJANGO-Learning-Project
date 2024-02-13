@@ -20,3 +20,28 @@ def extras(request):
 def todos(request):
     items = TodoItem.objects.all()
     return render(request, "todos.html", { "todos": items })
+
+
+def pythonoverview(request):
+    items = TodoItem.objects.all()
+    return render(request, "pythonoverview.html")
+
+
+def djangovaluepurpose(request):
+    items = TodoItem.objects.all()
+    return render(request, "djangovaluepurpose.html")
+
+
+def djangoprojectsfileapps(request):
+    items = TodoItem.objects.all()
+    return render(request, "djangoprojectsfileapps.html")
+
+
+def djangomigrations (request):
+    items = TodoItem.objects.all()
+    return render(request, "djangomigrations.html")
+
+
+def djangoadvanced(request):
+    items = TodoItem.objects.all()
+    return render(request, "djangoadvanced.html")

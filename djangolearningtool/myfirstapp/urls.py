@@ -3,8 +3,15 @@ from . import views
 
 urlpatterns = [
     path("", views.home, name="home"),
-    path("extras", views.extras, name="extras"),
     path("todos", views.todos, name="todos"),
+    path("extras", views.extras, name="extras"),
+    path("pythonoverview", views.pythonoverview, name="pythonoverview"),
+
+    path("djangovaluepurpose", views.djangovaluepurpose, name="extra2"),
+    path("djangoprojectsfileapps", views.djangoprojectsfileapps, name="djangoprojectsfileapps"),
+    path("djangomigrations", views.djangomigrations, name="djangomigrations"),
+    path("djangoadvanced", views.djangoadvanced, name="djangoadvanced"),
+
 
 ]
 # an empty path, "", means we go to the base url of the website.

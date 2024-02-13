@@ -12,25 +12,38 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">My Django App</a>
+    <a class="navbar-brand" href="../">My Python & Django Learning App</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-        <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
+        <li class="nav-item">
+        <a class="nav-link" href="todos">Topic List</a>
+        </li>
+        <!-- <li class="nav-item">
+        <a class="nav-link" href="extras">Pure HTTP Response</a>
+        </li> -->
+        <li class="nav-item">
+            <a class="nav-link" href="pythonoverview">Python intro</a>
+            </li>
+        <li class="nav-item">
+            <a class="nav-link" href="djangovaluepurpose">Django's Value</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="todos">Todos</a>
+        <a class="nav-link" href="djangoprojectsfileapps">Django file structures</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="extras">Extras</a>
+            <a class="nav-link" href="djangomigrations">Django ORM and Migrations</a>
+            </li>
+        <li class="nav-item">
+            <a class="nav-link" href="djangoadvanced">Django Advanced Concepts</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="admin">Admin</a>
+            <a class="nav-link" href="admin">Admin Panel</a>
         </li>
     </ul>
     </div>
 </nav>
+<br>
 <div class="container">{% block content %} {% endblock %}</div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" ></script>

@@ -1,0 +1,32 @@
+<!-- extends "base.html" means we import all the code from base.html, for instance styling or meta info -->
+<!-- block title is overridden with "Home Page" -->
+<!-- block content is overridden with just a p tag -->
+{% extends "base.html" %} {% block title %} Home Page {% endblock %}
+{% block content %} 
+
+<h3>What should a Django developer master?</h3>
+<p>For developers aspiring to become proficient in Django development, mastering essential concepts and advanced techniques is crucial. Let's explore what a Django developer should aim to master, highlighting some advanced concepts along the way:</p>
+
+<p><strong>Essential Concepts:</strong></p>
+<ul>
+    <li><strong>Models:</strong> Understanding Django's model layer is essential for database interaction. Developers should learn to define models, create migrations, and perform database operations using Django's ORM (Object-Relational Mapping).</li>
+    <li><strong>Views and URLs:</strong> Mastering views and URL routing allows developers to create dynamic web pages and handle user requests effectively. Knowledge of class-based views and function-based views is beneficial.</li>
+    <li><strong>Templates:</strong> Learning Django's template language and best practices for template inheritance, context data, and template tags enables developers to create flexible and maintainable HTML templates.</li>
+    <li><strong>Forms:</strong> Proficiency in Django's form handling capabilities, including form validation, rendering, and processing, is essential for building interactive web forms and handling user input securely.</li>
+    <li><strong>Authentication and Authorization:</strong> Understanding Django's built-in authentication system and authorization mechanisms allows developers to implement user authentication, permissions, and access control in their applications.</li>
+    <li><strong>Admin Interface:</strong> Familiarity with Django's admin interface and customization options enables developers to create powerful CRUD (Create, Read, Update, Delete) interfaces for managing application data.</li>
+</ul>
+
+<p><strong>Advanced Concepts:</strong></p>
+<ul>
+    <li><strong>Middleware:</strong> Mastering Django middleware allows developers to customize request/response processing, implement cross-cutting concerns such as logging and caching, and extend Django's core functionality.</li>
+    <li><strong>Signals:</strong> Understanding Django signals enables developers to decouple components within their applications and implement event-driven architectures. Signals allow for efficient communication between different parts of the application.</li>
+    <li><strong>Custom Management Commands:</strong> Learning to create custom management commands with Django's command-line interface (CLI) enhances developer productivity and allows for automation of routine tasks and administrative tasks.</li>
+    <li><strong>Custom Template Tags and Filters:</strong> Proficiency in creating custom template tags and filters extends Django's template language and enables developers to encapsulate reusable presentation logic and enhance template functionality.</li>
+    <li><strong>Asynchronous Views:</strong> Understanding asynchronous programming with Django's async views and asynchronous I/O libraries such as Django Channels allows developers to build real-time applications and handle concurrent requests more efficiently.</li>
+    <li><strong>Performance Optimization:</strong> Mastering techniques for optimizing Django application performance, such as caching, database optimization, and profiling, helps developers build scalable and high-performance web applications.</li>
+</ul>
+
+<p>In summary, mastering Django development involves understanding essential concepts such as models, views, templates, forms, authentication, and the admin interface, while also delving into advanced techniques such as middleware, signals, custom management commands, template tags, asynchronous views, and performance optimization. By acquiring proficiency in both fundamental and advanced Django concepts, developers can build robust, scalable, and feature-rich web applications with Django.</p>
+
+{% endblock %}
