@@ -7,11 +7,11 @@
     <h3>Topic list</h3>
     <br>
     <p>The simple list below is generated using for a for loop and if statement. In React, James would have typically achieved the same effect using the array.map method.</p>
-    <code>
+    <!-- <code> -->
         <ul>
             {% for todo in todos %}
             <li><h5>{{ todo.title }}</h5> - {% if todo.completed %}Completed{% else %} In progress{% endif %}</li>
             {% endfor %}
         </ul>
-    </code>
+    <!-- </code> -->
 {% endblock %}
