@@ -142,23 +142,3 @@ Python, Django, HTML, CSS
 
 <!-- ## Try it out -->
 
-
-______________________________________________________________________
-
-# Guidance for any other JavaScript developers wanting to try making a clone of the project - an A to Z guide:
-I suggest breaking this up into chunks.
-
-## Installations
-* Install Python. This may be easier on Windows and Linux rathre than Apple devices.
-
-## Project scaffolding and setup
-* ...
-
-## Styling
-...
-
-## Deployment
-...
-
-## An extra challenge
-...
