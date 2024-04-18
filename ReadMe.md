@@ -1,7 +1,8 @@
 # Django Learning Tool
+![DjangoShotBanner](https://github.com/jamesdiffeycoding/DJANGO-Learning-Project/assets/139918141/46dc3496-376d-453d-aa35-fb6764e98f00)
 
 ## Inspiration
-I wanted to learn more about Python and Django after hearing about some incredible roles that use them.
+I wanted to learn more about Python and Django after hearing about some great projects that use them.
 <!-- ## What it does -->
 <!-- Description of the project  -->
 
