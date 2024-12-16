@@ -10,7 +10,7 @@ I wanted to learn more about Python and Django after hearing about some great pr
 <!-- ## How we built it -->
 <!--  -->
 
-<!-- ## Challenges we ran into -->
+<!-- ## Challenges we ran into --> 
 <!--  -->
 
 <!-- ## Accomplishments that we're proud of -->
