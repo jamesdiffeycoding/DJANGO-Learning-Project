@@ -3,7 +3,6 @@
 
 ## Inspiration
 
-
 I wanted to learn more about Python and Django after hearing about some great projects that use them.
 <!-- ## What it does -->
 <!-- Description of the project  -->
